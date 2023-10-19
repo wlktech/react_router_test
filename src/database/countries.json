@@ -1,0 +1,22 @@
+{
+    "countries" : [
+        {
+            "id" : 1,
+            "name" : "Myanmar",
+            "capital" : "Nay Pyi Taw",
+            "img" : "https://cdn.britannica.com/34/4034-004-B478631E/Flag-Myanmar.jpg"
+        },
+        {
+            "id" : 2,
+            "name" : "Thailand",
+            "capital" : "Bangkok",
+            "img" : "https://cdn.britannica.com/38/4038-004-111388C2/Flag-Thailand.jpg"
+        },
+        {
+            "id" : 3,
+            "name" : "China",
+            "capital" : "Beijing",
+            "img" : "https://cdn.britannica.com/90/7490-004-BAD4AA72/Flag-China.jpg"
+        }
+    ]
+}
