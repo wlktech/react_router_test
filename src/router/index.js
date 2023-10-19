@@ -31,8 +31,8 @@ const router = createBrowserRouter([
                 element : <Api/>
             },
             {
-                path : '/blog/:id',
-                element : <BlogDetail/>
+                path : '/country/:id',
+                element : <CountryDetail/>
             },            
             {
                 path : 'about/country/:id',

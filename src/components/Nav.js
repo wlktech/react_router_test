@@ -33,7 +33,7 @@ export default function Nav() {
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             <NavLink to={'/'} className="nav-link">
-                                Home
+                                Countries
                             </NavLink>
                         </li>
                         <li className="nav-item">
