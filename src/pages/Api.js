@@ -36,9 +36,9 @@ export default function Api() {
           </div>
           <div className="d-flex justify-content-center">
             {links && links.map(link => (
-              <div key={link.id} className='m-3'>
-                <button className={`btn btn-sm btn-outline-secondary ${link.active === true ? 'active' : ''}`} onClick={() => setUrl(link.url)}>
-                  {link.label}
+              <div key={link.id} className='m-1'>
+                <button className={`btn btn-sm btn-outline-secondary ${link.active ? 'active' : ''}`} onClick={() => setUrl(link.url)}>
+                  {link.label === "&laquo; Previous" ? 'Previous' : link.label === "Next &raquo;" ? 'Next' : link.label}
                 </button>
               </div>
             ))}
