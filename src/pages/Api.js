@@ -24,10 +24,52 @@ export default function Api() {
             <div className="col-md-4 mb-3" key={blog.id}>
               <div className="card border border-0 shadow">
                     <img src={blog.image} alt="" className="card-img-top" />
+                    
                     <div className="card-body">
+                      <div className="d-flex justify-content-between">
+                      <p>
+                          <i className="fas fa-calendar me-2"></i>
+                          {new Date(blog.created_at).toLocaleString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            // hour: 'numeric',
+                            // minute: 'numeric',
+                            // second: 'numeric',
+                            // hour12: true
+                          })}
+                        </p>
+                        <p>
+                          <i className="fas fa-user-circle me-2"></i>
+                          {blog.users.name}
+                        </p>
+                      </div>
+
                         <h3>{blog.title}</h3>
                         <p>{blog.desc}</p>
-                        <Link to={`/api/blog/`+blog.id}>Read More</Link>
+                        <div className="d-flex justify-content-between">
+                          <div>
+                            <button type="button" className="btn position-relative">
+                              <i className="fas fa-heart"></i>
+                              <span className="position-absolute top-0 start-75 translate-middle badge rounded-pill bg-danger">
+                                {blog.likes_count}
+                                <span className="visually-hidden">unread messages</span>
+                              </span>
+                            </button>
+                            <button type="button" className="btn position-relative">
+                              <i className="fas fa-comment"></i>
+                              <span className="position-absolute top-0 start-75 translate-middle badge rounded-pill bg-danger">
+                                {blog.comments_count}
+                                <span className="visually-hidden">unread messages</span>
+                              </span>
+                            </button>
+                          </div>
+                          <div>
+                            <Link className='btn btn-sm btn-secondary' to={`/api/blog/`+blog.id}>Read More</Link>
+                          </div>
+                        </div>
+                        
+                        
                     </div>
               </div>
             </div>
