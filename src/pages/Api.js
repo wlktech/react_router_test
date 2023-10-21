@@ -5,6 +5,7 @@ import useApi from '../hooks/useApi';
 export default function Api() {
   let url = "https://flutterapi.delightmyanmar.pro/api/home";
   let { data: blogs, loading, error } = useApi(url);
+  let { data: links } = useApi(url);
 
   return (
     <>
@@ -20,6 +21,7 @@ export default function Api() {
         <div className='container my-3'>
           <div className="row">
           {blogs && blogs.map(blog => (
+            <>
             <div className="col-md-4 mb-3" key={blog.id}>
               <div className="card border border-0 shadow">
                     <img src={blog.image} alt="" className="card-img-top" />
@@ -30,10 +32,18 @@ export default function Api() {
                     </div>
               </div>
             </div>
+            </>
           ))}
+
+            <div className="text-center">
+              {links && links.map(link => (
+                <div className="m-3" key={link.id}>
+                  <p>{link.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-
     </>
 
   )
