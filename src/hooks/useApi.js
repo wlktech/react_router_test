@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 const useApi = (url) => {
   
     let [data, setData] = useState([]);
+    let [page, setPage] = useState([]);
     let [loading, setLoading] = useState(false);
     let [error, setError] = useState(null);
 
@@ -22,6 +23,7 @@ const useApi = (url) => {
         })
         .then(data => {
             setData(data.data);
+            setPage(data.links);
             setLoading(false)
         })
         .catch(e =>{
@@ -35,7 +37,7 @@ const useApi = (url) => {
 
     }, [url])
 
-    return {data, loading, error}
+    return {data, page, loading, error}
 }
 
 export default useApi

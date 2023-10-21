@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import useApi from '../hooks/useApi';
 
 export default function Api() {
-  let url = "https://flutterapi.delightmyanmar.pro/api/home";
-  let { data: blogs, loading, error } = useApi(url);
-  let { data: links } = useApi(url);
+  const [url, setUrl] = useState("https://flutterapi.delightmyanmar.pro/api/home");
+  let { data: blogs, page: links, loading, error } = useApi(url);
 
   return (
     <>
@@ -34,14 +33,15 @@ export default function Api() {
             </div>
             </>
           ))}
-
-            <div className="text-center">
-              {links && links.map(link => (
-                <div className="m-3" key={link.id}>
-                  <p>{link.label}</p>
-                </div>
-              ))}
-            </div>
+          </div>
+          <div className="d-flex justify-content-center">
+            {links && links.map(link => (
+              <div key={link.id} className='m-3'>
+                <button className={`btn btn-sm btn-outline-secondary ${link.active === true ? 'active' : ''}`} onClick={() => setUrl(link.url)}>
+                  {link.label}
+                </button>
+              </div>
+            ))}
           </div>
         </div>
     </>
